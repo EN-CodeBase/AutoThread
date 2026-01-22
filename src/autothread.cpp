@@ -10,7 +10,7 @@ AutoThread::AutoThread(std::chrono::duration<Rep, Period> latency,
         [this,
             latency,
             fn = std::forward<F>(f),
-            tup = std::make_tuple(std::forward<Args>(args)...)]() mutable
+            tup = std::make_tuple(std::forward<Args>(args)...)]() -> ReturnType mutable
         {
             while (running.load(std::memory_order_relaxed)) {
                 std::apply(fn, tup);
@@ -29,4 +29,5 @@ void AutoThread::Kill(){
 
 AutoThread::~AutoThread() {
     Kill();
+
 }
