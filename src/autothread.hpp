@@ -8,6 +8,7 @@
 
 using namespace std::chrono_literals;
 
+template <typename ReturnType>
 class AutoThread {
     std::thread worker;
     std::atomic<bool> running{true};
@@ -22,4 +23,5 @@ public:
     void Kill();
 
     ~AutoThread();
+
 };
