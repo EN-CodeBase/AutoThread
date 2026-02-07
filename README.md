@@ -11,7 +11,9 @@ It removes all the boilerplate of working with threads in C++ and allows for eas
 - Infinite Runtime | unless program terminates or thread is killed
 - Thread Killing   | Thread.Kill() ends the thread after the last function call finishes
 
-      AutoThread Thrd (
+      #include "AutoThread/include/autothread.hpp"
+
+      AutoThread<ReturnType> Thrd (
         500ms
         /* Function */
         [](int x, int y){
@@ -37,17 +39,22 @@ It removes all the boilerplate of working with threads in C++ and allows for eas
       Thrd.Kill();
       // Thrd_2 will be killed (joined) automatically when the program terminates
 
+        Thrd.Output.load() // gives you the output of the thread
+        Thrd.CallTimes.load() // gives you the number of times thread colled function
+
 ## Usage
 call the constructor which takes the following parameters:
 - latency (chrono syntax): ex 300ms
-- function (lambda, method or a function) with void return
+- function (lambda, method or a function) with ReturnType return
 - function parameters
 
 
 ## Installation
-This library does NOT use any third party libraries so as long as you have cpp 17+ installed it should work  
-Recomended to use cmake for ease of use
+Copy and paste library or header file into project
+Reference the library in CMake file via: AutoThread/lib/cmake/AutoThread/AutoThreadTargets.cmake
 
 ## Limitations 
 - cant handle reference parameters
-- passed function cant return anything other than void
+- cant change function variables during thread runtime
+- cant have non primitive return type
+- not good error handling (CAREFUL, if big compiler error check if you gave proper inputs to AutoThread)
