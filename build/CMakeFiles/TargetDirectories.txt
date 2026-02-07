@@ -1,4 +1,0 @@
-C:/Users/User/Desktop/projects/AutoThread/build/CMakeFiles/auto_thread.dir
-C:/Users/User/Desktop/projects/AutoThread/build/CMakeFiles/INSTALL.dir
-C:/Users/User/Desktop/projects/AutoThread/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/User/Desktop/projects/AutoThread/build/CMakeFiles/ZERO_CHECK.dir
